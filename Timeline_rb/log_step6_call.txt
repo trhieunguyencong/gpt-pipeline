@@ -1,0 +1,3 @@
+📌 Gọi step6: next_rb = R2, next_marker = {'marker_text': '10D → 6D (Vị trí 6D: timer time lưu đủ giờ)', 'type': 'timer_time_luu', 'position': '6D', 'parsed_data': None}
+📌 Gọi step6: next_rb = R3, next_marker = {'marker_text': '21D → 10D (Vị trí 10D: timer time lưu đủ giờ)', 'type': 'timer_time_luu', 'position': '10D', 'parsed_data': None}
+📌 Gọi step6: next_rb = R1, next_marker = {'marker_text': '4T → 4D (Vị trí 4D: Chờ đồng bộ – r2: 6D bắt đầu lên)', 'type': 'wait_sync', 'position': '4D', 'parsed_data': {'robot': 'r2', 'source': '6D', 'dest': '6T', 'trigger_time': 'start'}}

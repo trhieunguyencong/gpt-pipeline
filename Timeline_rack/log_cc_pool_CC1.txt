@@ -1,0 +1,50 @@
+📋 Nội dung cc_pool['CC1']:
+                           action  start  end  CC source dest
+                          5D → 5T      0   10 CC1     5D   5T
+                          5T → 6T     10   20 CC1     5T   6T
+                          6T → 6D     20   30 CC1     6T   6D
+    6D → 1D (Vị trí 1D: nạp hàng)     30   40 CC1     6D   1D
+                          1D → 1T     40   50 CC1     1D   1T
+                          1T → 2T     50   60 CC1     1T   2T
+       2T → 2D (Vị trí 2D: timer)     60   70 CC1     2T   2D
+                          2D → 2T    130  140 CC1     2D   2T
+                          2T → 3T    140  150 CC1     2T   3T
+                          3T → 3D    150  160 CC1     3T   3D
+                          3D → 3T    165  175 CC1     3D   3T
+                          3T → 4T    175  185 CC1     3T   4T
+   4T → 4D (Vị trí 4D: timer(15))    185  195 CC1     4T   4D
+                          4D → 4T    210  220 CC1     4D   4T
+                          4T → 5T    220  230 CC1     4T   5T
+                          5T → 5D    230  240 CC1     5T   5D
+                          9D → 9T      0   10 CC1     9D   9T
+                         9T → 10T     10   20 CC1     9T  10T
+                        10T → 10D     20   30 CC1    10T  10D
+ 10D → 6D (Vị trí 6D: timer(170))     30   40 CC1    10D   6D
+                          6D → 6T    210  220 CC1     6D   6T
+                          6T → 7T    220  230 CC1     6T   7T
+                          7T → 7D    230  240 CC1     7T   7D
+                          7D → 7T    245  255 CC1     7D   7T
+                          7T → 8T    255  265 CC1     7T   8T
+                          8T → 8D    265  275 CC1     8T   8D
+                          8D → 8T    280  290 CC1     8D   8T
+                          8T → 9T    290  300 CC1     8T   9T
+                          9T → 9D    300  310 CC1     9T   9D
+                        12D → 12T      0   10 CC1    12D  12T
+                        12T → 13T     10   20 CC1    12T  13T
+                        13T → 13D     20   30 CC1    13T  13D
+                        13D → 13T     35   45 CC1    13D  13T
+                        13T → 14T     45   55 CC1    13T  14T
+                        14T → 14D     55   65 CC1    14T  14D
+                        14D → 14T     70   80 CC1    14D  14T
+                        14T → 20T     80   90 CC1    14T  20T
+                        20T → 20D     90  100 CC1    20T  20D
+                        20D → 20T    105  115 CC1    20D  20T
+                        20T → 21T    115  125 CC1    20T  21T
+21T → 21D (Vị trí 21D: tháo hàng)    125  135 CC1    21T  21D
+21D → 10D (Vị trí 10D: timer(65))    135  145 CC1    21D  10D
+                        10D → 10T    210  220 CC1    10D  10T
+                        10T → 11T    220  230 CC1    10T  11T
+                        11T → 11D    230  240 CC1    11T  11D
+                        11D → 11T    245  255 CC1    11D  11T
+                        11T → 12T    255  265 CC1    11T  12T
+                        12T → 12D    265  275 CC1    12T  12D

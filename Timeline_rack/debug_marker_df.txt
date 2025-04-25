@@ -1,0 +1,15 @@
+🧪 CÁC CỘT:
+['action', 'start', 'end', 'CC']
+
+🧪 10 DÒNG ĐẦU:
+                       action  start  end  CC
+                      5D → 5T      0   10 CC1
+                      5T → 6T     10   20 CC1
+                      6T → 6D     20   30 CC1
+6D → 1D (Vị trí 1D: nạp hàng)     30   40 CC1
+                      1D → 1T     40   50 CC1
+                      1T → 2T     50   60 CC1
+   2T → 2D (Vị trí 2D: timer)     60   70 CC1
+    2D (Vị trí 2D: timer(60))     70  130 CC1
+                      2D → 2T    130  140 CC1
+                      2T → 3T    140  150 CC1

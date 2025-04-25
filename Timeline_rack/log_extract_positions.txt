@@ -1,0 +1,48 @@
+🚀 Bắt đầu truy vết từ 1D đến 21D
+
+🔍 current = 1D → xt = 1T
+✅ Tìm thấy: 1T → 2T → 2D
+
+🔍 current = 2D → xt = 2T
+✅ Tìm thấy: 2T → 3T → 3D
+
+🔍 current = 3D → xt = 3T
+✅ Tìm thấy: 3T → 4T → 4D
+
+🔍 current = 4D → xt = 4T
+✅ Tìm thấy: 4T → 5T → 5D
+
+🔍 current = 5D → xt = 5T
+✅ Tìm thấy: 5T → 6T → 6D
+
+🔍 current = 6D → xt = 6T
+✅ Tìm thấy: 6T → 7T → 7D
+
+🔍 current = 7D → xt = 7T
+✅ Tìm thấy: 7T → 8T → 8D
+
+🔍 current = 8D → xt = 8T
+✅ Tìm thấy: 8T → 9T → 9D
+
+🔍 current = 9D → xt = 9T
+✅ Tìm thấy: 9T → 10T → 10D
+
+🔍 current = 10D → xt = 10T
+✅ Tìm thấy: 10T → 11T → 11D
+
+🔍 current = 11D → xt = 11T
+✅ Tìm thấy: 11T → 12T → 12D
+
+🔍 current = 12D → xt = 12T
+✅ Tìm thấy: 12T → 13T → 13D
+
+🔍 current = 13D → xt = 13T
+✅ Tìm thấy: 13T → 14T → 14D
+
+🔍 current = 14D → xt = 14T
+✅ Tìm thấy: 14T → 20T → 20D
+
+🔍 current = 20D → xt = 20T
+✅ Tìm thấy: 20T → 21T → 21D
+
+✅ visited = ['1D', '2D', '3D', '4D', '5D', '6D', '7D', '8D', '9D', '10D', '11D', '12D', '13D', '14D', '20D', '21D']

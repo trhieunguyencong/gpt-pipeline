@@ -1,0 +1,36 @@
+--- Robot R1 ---\nrobot                                                action source dest  start  end
+   R1                                               5D → 5T     5D   5T    930  940
+   R1                                               5T → 6T     5T   6T    940  950
+   R1                                               6T → 6D     6T   6D    950  960
+   R1                         6D → 1D (Vị trí 1D: nạp hàng)     6D   1D    960  970
+   R1                                               1D → 1T     1D   1T    970  980
+   R1                                               1T → 2T     1T   2T    980  990
+   R1                            2T → 2D (Vị trí 2D: timer)     2T   2D    990 1000
+   R1                             2D (Vị trí 2D: timer(60))     2D   2D   1000 1060
+   R1                                               2D → 2T     2D   2T   1060 1070
+   R1                                               2T → 3T     2T   3T   1070 1080
+   R1                                               3T → 3D     3T   3D   1080 1090
+   R1                                            TDT tại 3D     3D   3D   1090 1095
+   R1                                               3D → 3T     3D   3T   1095 1105
+   R1                                               3T → 4T     3T   4T   1105 1115
+   R1 4T → 4D (Vị trí 4D: Chờ đồng bộ – r2: 6D bắt đầu lên)     4T   4D   1115 1125\n\n--- Robot R2 ---\nrobot                                      action source dest  start  end
+   R2                                     9D → 9T     9D   9T    930  940
+   R2                                    9T → 10T     9T  10T    940  950
+   R2                                   10T → 10D    10T  10D    950  960
+   R2 10D → 6D (Vị trí 6D: timer time lưu đủ giờ)    10D   6D    960  970\n\n--- Robot R3 ---\nrobot                                        action source dest  start  end
+   R3                                     12D → 12T    12D  12T    930  940
+   R3                                     12T → 13T    12T  13T    940  950
+   R3                                     13T → 13D    13T  13D    950  960
+   R3                                   TDT tại 13D    13D  13D    960  965
+   R3                                     13D → 13T    13D  13T    965  975
+   R3                                     13T → 14T    13T  14T    975  985
+   R3                                     14T → 14D    14T  14D    985  995
+   R3                                   TDT tại 14D    14D  14D    995 1000
+   R3                                     14D → 14T    14D  14T   1000 1010
+   R3                                     14T → 20T    14T  20T   1010 1020
+   R3                                     20T → 20D    20T  20D   1020 1030
+   R3                                   TDT tại 20D    20D  20D   1030 1035
+   R3                                     20D → 20T    20D  20T   1035 1045
+   R3                                     20T → 21T    20T  21T   1045 1055
+   R3             21T → 21D (Vị trí 21D: tháo hàng)    21T  21D   1055 1065
+   R3 21D → 10D (Vị trí 10D: timer time lưu đủ giờ)    21D  10D   1065 1075\n\n

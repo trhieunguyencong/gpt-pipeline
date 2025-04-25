@@ -1,0 +1,1 @@
+--- Robot R1 ---\n01: 5D → 5T\n02: 5T → 6T\n03: 6T → 6D\n04: 6D → 1D (Vị trí 1D: nạp hàng)\n05: 1D → 1T\n06: 1T → 2T\n07: 2T → 2D (Vị trí 2D: timer)\n08: 2D → 2T\n09: 2T → 3T\n10: 3T → 3D\n11: 3D → 3T\n12: 3T → 4T\n13: 4T → 4D (Vị trí 4D: timer(15))\n14: 4D → 4T\n15: 4T → 5T\n16: 5T → 5D\n\n
