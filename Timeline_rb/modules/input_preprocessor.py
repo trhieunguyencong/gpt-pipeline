@@ -43,3 +43,57 @@ def extract_inputs(input_dir: str):
     selected_robots = list(route_steps_by_robot.keys())
 
     return route_steps_by_robot, base_timer_dict, time_luu_dict, marker_docx_path, selected_robots
+
+
+# Điều chỉnh lấy thông tin input từ json N8N
+
+from module_luong_core_v1_2 import extract_timer_time_luu_positions
+
+def extract_inputs_from_json(data: dict):
+    """
+    Trích xuất dữ liệu từ JSON để phục vụ pipeline Cloud.
+    
+    Trả ra:
+    - route_steps_by_robot: dict[str, list[dict]]
+    - base_timer_dict: dict[str, int]
+    - time_luu_dict: dict[str, int]
+    - marker_docx_path: str ('from_json')
+    - selected_robots: list[str]
+    """
+
+    # 1. Parse route
+    route_steps_by_robot = data.get("route", {})
+    if not isinstance(route_steps_by_robot, dict):
+        raise ValueError("Dữ liệu 'route' trong JSON không hợp lệ!")
+
+    # 2. Parse base_timer_dict
+    base_timer_config = data.get("base_timer_config", {})
+    base_timer_dict = {}
+
+    for pos, value in base_timer_config.items():
+        if isinstance(value, dict) and "timer_base" in value:
+            base_timer_dict[pos] = int(value["timer_base"])
+        elif isinstance(value, int):
+            base_timer_dict[pos] = value
+        else:
+            base_timer_dict[pos] = 0  # Mặc định nếu dữ liệu không chuẩn
+
+    # 3. Tự sinh time_luu_dict từ route_steps_by_robot
+    time_luu_dict = {}
+    for robot, steps in route_steps_by_robot.items():
+        if not isinstance(steps, list):
+            raise ValueError(f"Dữ liệu steps của robot {robot} không phải list!")
+
+        timer_luu_positions = extract_timer_time_luu_positions(steps)
+        for pos in timer_luu_positions:
+            if pos not in time_luu_dict:
+                time_luu_dict[pos] = 0  # Giá trị mặc định 0, sau này pipeline xử lý gán giá trị chuẩn
+
+    # 4. marker_docx_path: set mặc định
+    marker_docx_path = "from_json"
+
+    # 5. selected_robots: từ keys của route
+    selected_robots = list(route_steps_by_robot.keys())
+
+    return route_steps_by_robot, base_timer_dict, time_luu_dict, marker_docx_path, selected_robots
+
