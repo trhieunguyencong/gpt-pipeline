@@ -46,48 +46,68 @@ def extract_inputs(input_dir: str):
 
 
 # Điều chỉnh lấy thông tin input từ json N8N
-
-from module_luong_core_v1_2 import extract_timer_time_luu_positions
-
 def extract_inputs_from_json(data: dict):
     """
     Trích xuất dữ liệu từ JSON để phục vụ pipeline Cloud.
-    
+
     Trả ra:
-    - route_steps_by_robot: dict[str, list[dict]]
+    - route_steps_by_robot: dict[str, list[str]] (đã convert về dạng "source → dest (marker)")
     - base_timer_dict: dict[str, int]
     - time_luu_dict: dict[str, int]
     - marker_docx_path: str ('from_json')
     - selected_robots: list[str]
     """
 
+    # --- Hàm phụ để convert step ---
+    def convert_route_steps_object_to_strings(route_steps_by_robot_obj):
+        route_steps_by_robot_str = {}
+
+        for robot, robot_data in route_steps_by_robot_obj.items():
+            steps = robot_data.get("steps", [])
+            step_strings = []
+
+            for step in steps:
+                source = step.get("source")
+                dest = step.get("dest")
+                marker = step.get("marker")
+                special_tag = step.get("special_tag")
+
+                # Nếu là dòng đặc biệt (#route_if, #route_else, #route_endif)
+                if special_tag:
+                    step_strings.append(special_tag.strip())
+                    continue
+
+                if source and dest:
+                    line = f"{source} → {dest}"
+                    if marker:
+                        line += f" {marker.strip()}"
+                    step_strings.append(line)
+            
+            route_steps_by_robot_str[robot] = step_strings
+
+        return route_steps_by_robot_str
+
     # 1. Parse route
-    route_steps_by_robot = data.get("route", {})
-    if not isinstance(route_steps_by_robot, dict):
+    raw_route_steps_by_robot = data.get("route", {})
+    if not isinstance(raw_route_steps_by_robot, dict):
         raise ValueError("Dữ liệu 'route' trong JSON không hợp lệ!")
 
-    # 2. Parse base_timer_dict
+    # 1.1. Convert route object thành list strings
+    route_steps_by_robot = convert_route_steps_object_to_strings(raw_route_steps_by_robot)
+
+    # 2&3. Parse base_timer_dict và time_luu_dict
     base_timer_config = data.get("base_timer_config", {})
     base_timer_dict = {}
-
+    time_luu_dict = {}
+    
     for pos, value in base_timer_config.items():
-        if isinstance(value, dict) and "timer_base" in value:
-            base_timer_dict[pos] = int(value["timer_base"])
+        if isinstance(value, dict):
+            if "timer_base" in value:
+                base_timer_dict[pos] = int(value["timer_base"])
+            if "timer_time_luu" in value:
+                time_luu_dict[pos] = int(value["timer_time_luu"])
         elif isinstance(value, int):
             base_timer_dict[pos] = value
-        else:
-            base_timer_dict[pos] = 0  # Mặc định nếu dữ liệu không chuẩn
-
-    # 3. Tự sinh time_luu_dict từ route_steps_by_robot
-    time_luu_dict = {}
-    for robot, steps in route_steps_by_robot.items():
-        if not isinstance(steps, list):
-            raise ValueError(f"Dữ liệu steps của robot {robot} không phải list!")
-
-        timer_luu_positions = extract_timer_time_luu_positions(steps)
-        for pos in timer_luu_positions:
-            if pos not in time_luu_dict:
-                time_luu_dict[pos] = 0  # Giá trị mặc định 0, sau này pipeline xử lý gán giá trị chuẩn
 
     # 4. marker_docx_path: set mặc định
     marker_docx_path = "from_json"

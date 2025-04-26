@@ -14,6 +14,32 @@ def run_full_timeline_pipeline_from_json(
 ):
     # Tầng 1–2: Tiền xử lý
     route_steps_by_robot, base_timer_dict, time_luu_dict, marker_docx_path, selected_robots = extract_inputs_from_json(data)
+    # ✅ Ghi log các biến đã extract
+    with open("log_extract_inputs.txt", "w", encoding="utf-8") as f:
+        f.write("✅ [LOG] Kết quả extract_inputs()\n\n")
+    
+        f.write("🔹 route_steps_by_robot:\n")
+        for robot, steps in route_steps_by_robot.items():
+            f.write(f"  - {robot} ({len(steps)} bước):\n")
+            for step in steps:
+                f.write(f"      {step}\n")
+        f.write("\n")
+    
+        f.write("🔹 base_timer_dict:\n")
+        for pos, timer in base_timer_dict.items():
+            f.write(f"  - {pos}: {timer}\n")
+        f.write("\n")
+
+        f.write("🔹 time_luu_dict:\n")
+        for pos, timer in time_luu_dict.items():
+            f.write(f"  - {pos}: {timer}\n")
+        f.write("\n")
+
+        f.write(f"🔹 marker_docx_path: {marker_docx_path}\n\n")
+
+        f.write("🔹 selected_robots:\n")
+        for robot in selected_robots:
+            f.write(f"  - {robot}\n")
 
     with open("log_route_steps.txt", "w", encoding="utf-8") as f:
         for robot, steps in route_steps_by_robot.items():
