@@ -8,12 +8,6 @@ from typing import Dict, Optional, Callable, List, Tuple
 base_dir = os.path.dirname(os.path.abspath(__file__))
 modules_dir = os.path.join(base_dir, "modules")
 
-# Thêm modules vào sys.path nếu chưa có
-if modules_dir not in sys.path:
-    sys.path.insert(0, modules_dir)
-
-from marker_utils import find_first_last_position_from_marker
-
 def parse_action(action: str):
     match = re.match(r"(\d+[DT])\s*→\s*(\d+[DT])", str(action))
     if match:
@@ -151,6 +145,11 @@ def timeline_rack_v5_lazy(request_cc_fn: Callable[[int], Optional[pd.DataFrame]]
 
 
     # Bước 2: xác định vị trí đầu/cuối
+    # Thêm modules vào sys.path nếu chưa có
+    if modules_dir not in sys.path:
+        sys.path.insert(0, modules_dir)
+    from marker_utils import find_first_last_position_from_marker
+    
     first_pos, last_pos = find_first_last_position_from_marker(df_cc1)
     print(f"✅ Marker xác định: Vị trí đầu = {first_pos}, Vị trí cuối = {last_pos}")
 
