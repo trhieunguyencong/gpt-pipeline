@@ -14,6 +14,10 @@ async def run_pipeline(request: Request):
     # Bước 1: Nhận JSON từ GPT gửi lên
     data = await request.json()
     global_input_data = data  # ✅ Lưu vào global_input_data
+    # ✅ Thêm log dữ liệu nhận được
+    print("\n========== 📥 DỮ LIỆU NHẬN VÀO TỪ HTTP REQUEST ==========")
+    print(global_input_data)
+    print("=========================================================\n")
 
     # Bước 2: Gọi pipeline rack
     timeline_rack_v5_lazy(
