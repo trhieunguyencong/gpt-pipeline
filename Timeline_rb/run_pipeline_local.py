@@ -1,8 +1,8 @@
+import json
 import sys
 import os
 import importlib.util
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from global_storage import global_input_data
 
 # Nạp lệnh chạy cc từ pipeline khác
 try:
@@ -49,15 +49,24 @@ else:
     from get_start_time_from_prev_cc import get_start_time_from_prev_cc
     start_time = get_start_time_from_prev_cc(cc_label, output_dir)
 
-# ✅ lấy global_input_data để xử lý
-if global_input_data is None:
-    raise ValueError("Không có dữ liệu global input!")
-data = global_input_data  
+# ✅Kiểm tra file input_data.json tồn tại
+if not os.path.exists("input_data.json"):
+    raise ValueError("Không tìm thấy file input_data.json!")
 
-# Import và gọi pipeline
+# Đọc dữ liệu từ file input_data.json
+with open("input_data.json", "r", encoding="utf-8") as f:
+    global_input_data = json.load(f)
+
+# Kiểm tra dữ liệu đã đọc
+if not global_input_data:
+    raise ValueError("Không có dữ liệu global input!")
+
+print("\n✅ Đã đọc dữ liệu global_input_data từ file thành công!")
+
+# ✅Import và gọi pipeline
 main_pipeline_v5_cloud
 main_pipeline_v5_cloud.run_full_timeline_pipeline_from_json(
-    data=data,
+    data=global_input_data,
     output_path=output_path,
     cc_label=cc_label,
     verbose=True,
