@@ -1,6 +1,8 @@
 import sys
 import os
 import importlib.util
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from global_storage import global_input_data
 
 # Nạp lệnh chạy cc từ pipeline khác
 try:
@@ -47,10 +49,15 @@ else:
     from get_start_time_from_prev_cc import get_start_time_from_prev_cc
     start_time = get_start_time_from_prev_cc(cc_label, output_dir)
 
+# ✅ lấy global_input_data để xử lý
+if global_input_data is None:
+    raise ValueError("Không có dữ liệu global input!")
+data = global_input_data  
+
 # Import và gọi pipeline
-import main_pipeline_v5
-main_pipeline_v5.run_full_timeline_pipeline(
-    input_dir=input_dir,
+main_pipeline_v5_cloud
+main_pipeline_v5_cloud.run_full_timeline_pipeline_from_json(
+    data=data,
     output_path=output_path,
     cc_label=cc_label,
     verbose=True,

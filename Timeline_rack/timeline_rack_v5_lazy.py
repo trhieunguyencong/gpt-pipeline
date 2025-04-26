@@ -12,7 +12,7 @@ modules_dir = os.path.join(base_dir, "modules")
 if modules_dir not in sys.path:
     sys.path.insert(0, modules_dir)
 
-from Timeline_rack.Modules.marker_utils import find_first_last_position_from_marker
+from marker_utils import find_first_last_position_from_marker
 
 def parse_action(action: str):
     match = re.match(r"(\d+[DT])\s*→\s*(\d+[DT])", str(action))
