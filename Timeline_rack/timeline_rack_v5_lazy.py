@@ -6,7 +6,7 @@ from typing import Dict, Optional, Callable, List, Tuple
 
 # Lấy thư mục gốc là timeline_rack
 base_dir = os.path.dirname(os.path.abspath(__file__))
-modules_dir = os.path.join(base_dir, "modules")
+Modules_dir = os.path.join(base_dir, "Modules")
 
 def parse_action(action: str):
     match = re.match(r"(\d+[DT])\s*→\s*(\d+[DT])", str(action))
@@ -147,7 +147,7 @@ def timeline_rack_v5_lazy(request_cc_fn: Callable[[int], Optional[pd.DataFrame]]
     # Bước 2: xác định vị trí đầu/cuối
     # Thêm Modules vào sys.path nếu chưa có
     if Modules_dir not in sys.path:
-        sys.path.insert(0, modules_dir)
+        sys.path.insert(0, Modules_dir)
     from marker_utils import find_first_last_position_from_marker
     
     first_pos, last_pos = find_first_last_position_from_marker(df_cc1)
@@ -187,7 +187,7 @@ def timeline_rack_v5_lazy(request_cc_fn: Callable[[int], Optional[pd.DataFrame]]
 
     # ✅ Đảm bảo thư mục 'output' nằm cùng cấp với file .bat tồn tại
     import os
-    output_dir = "output"
+    output_dir = os.path.join(base_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
 
     # ✅ Ghi file Excel
