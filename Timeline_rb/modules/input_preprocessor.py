@@ -88,12 +88,12 @@ def extract_inputs_from_json(data: dict):
         return route_steps_by_robot_str
 
     # 1. Parse route
-    raw_route_steps_by_robot = data.get("route", {})
-    if not isinstance(raw_route_steps_by_robot, dict):
+    raw_route = data.get("route", {})
+    if not isinstance(raw_route, dict):
         raise ValueError("Dữ liệu 'route' trong JSON không hợp lệ!")
 
     # 1.1. Convert route object thành list strings
-    route_steps_by_robot = convert_route_steps_object_to_strings(raw_route_steps_by_robot)
+    raw_route_steps_by_robot = convert_route_steps_object_to_strings(raw_route)
 
     # 2&3. Parse base_timer_dict và time_luu_dict
     base_timer_config = data.get("base_timer_config", {})
@@ -108,6 +108,11 @@ def extract_inputs_from_json(data: dict):
                 time_luu_dict[pos] = int(value["timer_time_luu"])
         elif isinstance(value, int):
             base_timer_dict[pos] = value
+
+    # 1.2. Chọn route trên đk timer
+    from route_condition_resolver import resolve_static_route_conditions
+    route_steps_by_robot = resolve_static_route_conditions(raw_route_steps_by_robot, base_timer_dict)
+
 
     # 4. marker_docx_path: set mặc định
     marker_docx_path = "from_json"

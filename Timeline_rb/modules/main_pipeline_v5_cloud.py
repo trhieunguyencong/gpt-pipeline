@@ -14,6 +14,7 @@ def run_full_timeline_pipeline_from_json(
 ):
     # Tầng 1–2: Tiền xử lý
     route_steps_by_robot, base_timer_dict, time_luu_dict, marker_docx_path, selected_robots = extract_inputs_from_json(data)
+
     # ✅ Ghi log các biến đã extract
     with open("log_extract_inputs.txt", "w", encoding="utf-8") as f:
         f.write("✅ [LOG] Kết quả extract_inputs()\n\n")

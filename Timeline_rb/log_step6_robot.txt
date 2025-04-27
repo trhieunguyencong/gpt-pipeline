@@ -28,3 +28,16 @@
 [STEP6] Đang xử lý robot: R2
 [STEP6] Đang xử lý robot: R3
 [STEP6] Đang xử lý robot: R1
+[STEP6] Đang xử lý robot: R3
+[STEP6] Đang xử lý robot: R2
+[STEP6] Đang xử lý robot: R3
+[STEP6] Đang xử lý robot: R1
+[STEP6] Đang xử lý robot: R2
+[STEP6] Đang xử lý robot: R3
+[STEP6] Đang xử lý robot: R1
+[STEP6] Đang xử lý robot: R2
+[STEP6] Đang xử lý robot: R3
+[STEP6] Đang xử lý robot: R1
+[STEP6] Đang xử lý robot: R2
+[STEP6] Đang xử lý robot: R3
+[STEP6] Đang xử lý robot: R1

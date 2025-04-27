@@ -1,0 +1,392 @@
+{
+  "route": {
+    "R1": {
+      "steps": [
+        {
+          "source": "5D",
+          "dest": "5T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "5T",
+          "dest": "6T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "6T",
+          "dest": "6D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "6D",
+          "dest": "1D",
+          "marker": "(Vị trí 1D: nạp hàng)",
+          "special_tag": null
+        },
+        {
+          "source": "1D",
+          "dest": "1T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "1T",
+          "dest": "2T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "2T",
+          "dest": "2D",
+          "marker": "(Vị trí 2D: timer)",
+          "special_tag": null
+        },
+        {
+          "source": "2D",
+          "dest": "2T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "2T",
+          "dest": "3T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "3T",
+          "dest": "3D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "3D",
+          "dest": "3T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "3T",
+          "dest": "4T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "4T",
+          "dest": "4D",
+          "marker": "(Vị trí 4D: Chờ đồng bộ – r2: 6D bắt đầu lên)",
+          "special_tag": null
+        },
+        {
+          "source": "4D",
+          "dest": "4T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "4T",
+          "dest": "5T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "5T",
+          "dest": "5D",
+          "marker": null,
+          "special_tag": null
+        }
+      ]
+    },
+    "R2": {
+      "steps": [
+        {
+          "source": "9D",
+          "dest": "9T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "9T",
+          "dest": "10T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_if timer 10 < 90"
+        },
+        {
+          "source": "10T",
+          "dest": "10D",
+          "marker": "(Vị trí 10D: timer)",
+          "special_tag": null
+        },
+        {
+          "source": "10D",
+          "dest": "10T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "10T",
+          "dest": "11T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "11T",
+          "dest": "11D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "11D",
+          "dest": "6D",
+          "marker": "(Vị trí 6D: timer time lưu đủ giờ)",
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_else"
+        },
+        {
+          "source": "10T",
+          "dest": "10D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "10D",
+          "dest": "6D",
+          "marker": "(Vị trí 6D: timer time lưu đủ giờ)",
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_endif"
+        },
+        {
+          "source": "6D",
+          "dest": "6T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "6T",
+          "dest": "7T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "7T",
+          "dest": "7D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "7D",
+          "dest": "7T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "7T",
+          "dest": "8T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "8T",
+          "dest": "8D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "8D",
+          "dest": "8T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "8T",
+          "dest": "9T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "9T",
+          "dest": "9D",
+          "marker": null,
+          "special_tag": null
+        }
+      ]
+    },
+    "R3": {
+      "steps": [
+        {
+          "source": "12D",
+          "dest": "12T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "12T",
+          "dest": "13T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "13T",
+          "dest": "13D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "13D",
+          "dest": "13T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "13T",
+          "dest": "14T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "14T",
+          "dest": "14D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "14D",
+          "dest": "14T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "14T",
+          "dest": "20T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "20T",
+          "dest": "20D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "20D",
+          "dest": "20T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "20T",
+          "dest": "21T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "21T",
+          "dest": "21D",
+          "marker": "(Vị trí 21D: tháo hàng)",
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_if timer 10 < 90"
+        },
+        {
+          "source": "21D",
+          "dest": "11D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_else"
+        },
+        {
+          "source": "21D",
+          "dest": "10D",
+          "marker": "(Vị trí 10D: timer time lưu đủ giờ)",
+          "special_tag": null
+        },
+        {
+          "source": "10D",
+          "dest": "10T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "10T",
+          "dest": "11T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "11T",
+          "dest": "11D",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": null,
+          "dest": null,
+          "marker": null,
+          "special_tag": "#route_endif"
+        },
+        {
+          "source": "11D",
+          "dest": "11T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "11T",
+          "dest": "12T",
+          "marker": null,
+          "special_tag": null
+        },
+        {
+          "source": "12T",
+          "dest": "12D",
+          "marker": null,
+          "special_tag": null
+        }
+      ]
+    }
+  },
+  "base_timer_config": {
+    "2D": {
+      "timer_base": 60
+    },
+    "6D": {
+      "timer_time_luu": 180
+    },
+    "10D": {
+      "timer_time_luu": 180,
+      "timer_base": 180
+    },
+    "15D": {
+      "timer_time_luu": 180,
+      "timer_base": 180
+    }
+  }
+}

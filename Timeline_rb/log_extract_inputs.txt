@@ -1,0 +1,71 @@
+✅ [LOG] Kết quả extract_inputs()
+
+🔹 route_steps_by_robot:
+  - R1 (16 bước):
+      5D → 5T
+      5T → 6T
+      6T → 6D
+      6D → 1D (Vị trí 1D: nạp hàng)
+      1D → 1T
+      1T → 2T
+      2T → 2D (Vị trí 2D: timer)
+      2D → 2T
+      2T → 3T
+      3T → 3D
+      3D → 3T
+      3T → 4T
+      4T → 4D (Vị trí 4D: Chờ đồng bộ – r2: 6D bắt đầu lên)
+      4D → 4T
+      4T → 5T
+      5T → 5D
+  - R2 (13 bước):
+      9D → 9T
+      9T → 10T
+      10T → 10D
+      10D → 6D (Vị trí 6D: timer time lưu đủ giờ)
+      6D → 6T
+      6T → 7T
+      7T → 7D
+      7D → 7T
+      7T → 8T
+      8T → 8D
+      8D → 8T
+      8T → 9T
+      9T → 9D
+  - R3 (19 bước):
+      12D → 12T
+      12T → 13T
+      13T → 13D
+      13D → 13T
+      13T → 14T
+      14T → 14D
+      14D → 14T
+      14T → 20T
+      20T → 20D
+      20D → 20T
+      20T → 21T
+      21T → 21D (Vị trí 21D: tháo hàng)
+      21D → 10D (Vị trí 10D: timer time lưu đủ giờ)
+      10D → 10T
+      10T → 11T
+      11T → 11D
+      11D → 11T
+      11T → 12T
+      12T → 12D
+
+🔹 base_timer_dict:
+  - 2D: 60
+  - 10D: 180
+  - 15D: 180
+
+🔹 time_luu_dict:
+  - 6D: 180
+  - 10D: 180
+  - 15D: 180
+
+🔹 marker_docx_path: from_json
+
+🔹 selected_robots:
+  - R1
+  - R2
+  - R3
