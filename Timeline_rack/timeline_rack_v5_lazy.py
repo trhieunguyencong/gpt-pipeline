@@ -145,8 +145,8 @@ def timeline_rack_v5_lazy(request_cc_fn: Callable[[int], Optional[pd.DataFrame]]
 
 
     # Bước 2: xác định vị trí đầu/cuối
-    # Thêm modules vào sys.path nếu chưa có
-    if modules_dir not in sys.path:
+    # Thêm Modules vào sys.path nếu chưa có
+    if Modules_dir not in sys.path:
         sys.path.insert(0, modules_dir)
     from marker_utils import find_first_last_position_from_marker
     
